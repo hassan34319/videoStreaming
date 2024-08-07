@@ -96,7 +96,6 @@ function ChaptersSubmenu({
   return (
     <Menu.Root className="">
       <SubmenuButton
-        className="absolute top-2"
         label="Highlights"
         hint={hint}
         icon={ChaptersIcon}
@@ -155,7 +154,7 @@ function Radio({ children, ...props }: RadioProps) {
 export interface SubmenuButtonProps {
   label: string;
   hint: string;
-  icon: ReactElement;
+  icon: any;
 }
 
 function SubmenuButton({ label, hint, icon: Icon }: SubmenuButtonProps) {

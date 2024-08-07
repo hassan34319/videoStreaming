@@ -22,7 +22,7 @@ export function ScoreAction({ currentHighlight }: Props) {
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   };
   return (
-    <div className="flex justify-center items-end z-50 fade-in text-gray-700 w-full text-start bg-[#C3C0FF] bg-opacity-[100%] rounded-[1rem] drop-shadow-xl mt-2 px-2 py-1 max-w-[30%] mx-2  font-bold">
+    <div className="flex justify-center items-end  fade-in text-gray-700 w-full text-start bg-[#C3C0FF] bg-opacity-[100%] rounded-[1rem] drop-shadow-xl mt-2 px-2 py-1 max-w-[30%] mx-2  font-bold">
       {currentHighlight.playerName} - {currentHighlight.action}
     </div>
   );

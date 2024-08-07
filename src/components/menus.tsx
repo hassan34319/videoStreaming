@@ -95,7 +95,7 @@ export interface SubmenuButtonProps {
   label: string;
   hint: string;
   disabled?: boolean;
-  icon: ReactElement;
+  icon: any;
 }
 
 function SubmenuButton({
@@ -106,7 +106,7 @@ function SubmenuButton({
 }: SubmenuButtonProps) {
   return (
     <Menu.Button
-      className="ring-media-focus parent left-0 z-10 flex w-full cursor-pointer select-none items-center justify-start rounded-sm bg-black/60 p-2.5 outline-none ring-inset data-[open]:sticky data-[open]:-top-2.5 data-[hocus]:bg-white/10 data-[focus]:ring-[3px] aria-disabled:hidden"
+      className="ring-media-focus parent left-0 z-30 flex w-full cursor-pointer select-none items-center justify-start rounded-sm bg-black/60 p-2.5 outline-none ring-inset data-[open]:sticky data-[open]:-top-2.5 data-[hocus]:bg-white/10 data-[focus]:ring-[3px] aria-disabled:hidden"
       disabled={disabled}
     >
       <ChevronLeftIcon className="parent-data-[open]:block -ml-0.5 mr-1.5 hidden h-[18px] w-[18px]" />

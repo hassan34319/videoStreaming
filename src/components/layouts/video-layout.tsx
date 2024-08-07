@@ -9,7 +9,6 @@ import * as Sliders from '../sliders';
 import { ChaptersMenu } from '../ChaptersMenu';
 import { TimeGroup } from '../time-group';
 import { Title } from '../title';
-import { QualityMenu } from '../QualityMenu';
 import { BufferingIndicator } from '../BufferIndicator';
 import { Scorecard } from '../Scorecard';
 import { ScoreAction } from '../ScoreAction';
