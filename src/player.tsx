@@ -101,17 +101,28 @@ export function Player() {
   );
   const [currentHighlight, setCurrentHighlight] = useState(highlights[0]);
   const [playNext, setPlayNext] = useState(true);
+
+  const playVideo = async (player: MediaPlayerInstance, retries = 5, delay = 500) => {
+    while (retries > 0) {
+      try {
+        await player.play();
+        console.log('Playback started successfully');
+        return;
+      } catch (err) {
+        console.error('Failed to play, retrying...', err);
+        retries -= 1;
+        await new Promise(res => setTimeout(res, delay));
+      }
+    }
+    console.error('Failed to play after multiple attempts');
+  };
   useEffect(() => {
     const player = playerRef.current;
     if (!player) return;
 
     // Reset the timer and play the video when the highlight changes
-    if(canPlay) {
     player.currentTime = 0.01;
-    player.play().catch((err) => {
-      console.error('Failed to autoplay:', err);
-    });
-  }
+    playVideo(player)
   }, [currentHighlight,canPlay]);
 
   useEffect(() => {
