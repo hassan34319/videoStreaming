@@ -147,6 +147,7 @@ export function Player() {
         autoPlay={true}
         paused={false}
         preload="auto"
+        muted={true}
         controlsDelay={100000000000}
       >
         <MediaProvider>
