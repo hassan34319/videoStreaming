@@ -119,6 +119,10 @@ export function Player() {
       const currentIndex = highlights.indexOf(currentHighlight);
       if (currentIndex < highlights.length - 1) {
         setCurrentHighlight(highlights[currentIndex + 1]);
+        player.currentTime = 0.01;
+        player.play().catch((err) => {
+          console.error('Failed to autoplay:', err);
+        });
       }
     }
   }, [ended, playNext]);
