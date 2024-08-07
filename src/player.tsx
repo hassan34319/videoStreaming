@@ -95,7 +95,7 @@ const highlights = [
 ];
 export function Player() {
   const playerRef = useRef<MediaPlayerInstance>(null);
-  const { currentTime, duration, ended } = useStore(
+  const { currentTime, duration, ended,canPlay } = useStore(
     MediaPlayerInstance,
     playerRef
   );
@@ -106,11 +106,13 @@ export function Player() {
     if (!player) return;
 
     // Reset the timer and play the video when the highlight changes
+    if(canPlay) {
     player.currentTime = 0.01;
     player.play().catch((err) => {
       console.error('Failed to autoplay:', err);
     });
-  }, [currentHighlight]);
+  }
+  }, [currentHighlight,canPlay]);
 
   useEffect(() => {
     const player = playerRef.current;
@@ -119,10 +121,6 @@ export function Player() {
       const currentIndex = highlights.indexOf(currentHighlight);
       if (currentIndex < highlights.length - 1) {
         setCurrentHighlight(highlights[currentIndex + 1]);
-        player.currentTime = 0.01;
-        player.play().catch((err) => {
-          console.error('Failed to autoplay:', err);
-        });
       }
     }
   }, [ended, playNext]);
