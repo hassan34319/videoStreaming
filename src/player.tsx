@@ -117,24 +117,13 @@ export function Player() {
   useEffect(() => {
     const player = playerRef.current;
     if (!player) return;
-  
     if (ended && playNext) {
       const currentIndex = highlights.indexOf(currentHighlight);
       if (currentIndex < highlights.length - 1) {
-        const nextHighlight = highlights[currentIndex + 1];
-  
-        // Short delay before starting the next highlight
-        setTimeout(() => {
-          setCurrentHighlight(nextHighlight);
-          // Ensure the next video starts playing
-          player.play().catch((err) => {
-            console.error('Failed to autoplay next highlight:', err);
-          });
-        }, 100); // 100ms delay (you can adjust this value)
+        setCurrentHighlight(highlights[currentIndex + 1]);
       }
     }
   }, [ended, playNext]);
-  
 
   function onProviderChange(
     provider: MediaProviderAdapter | null,
